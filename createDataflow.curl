@@ -1,0 +1,45 @@
+curl --location --request POST 'https://platform.adobe.io/data/foundation/flowservice/flows' \
+--header 'Authorization: Bearer {{ACCESS_TOKEN}} \
+--header 'x-api-key: {{API_KEY}}' \
+--header 'x-gw-ims-org-id: {{IMS_ORG}}' \
+--header 'x-sandbox-name: {{SANDBOX_NAME}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "name": "Database dataflow using Snowflake ORDERS",
+        "description": "collecting test.orders",
+        "flowSpec": {
+            "id": "{{FLOWSPECID_FROM_STEP4}}",
+            "version": "1.0"
+        },
+        "sourceConnectionIds": [
+            "{{SOURCEID_FROM_STEP2}}"
+        ],
+        "targetConnectionIds": [
+            "{{TARGETID_FROM_STEP3}}"
+        ],
+        "transformations": [
+            {
+                "name": "Copy",
+                "params": {
+                    "deltaColumn": {
+                        "name": "field3_datetime",
+                        "dateFormat": "yyyy-MM-dd'\''T'\''HH:mm:ss.SSS",
+                        "timezone": "AEST"
+                    }
+                }
+            },
+            {
+                "name": "Mapping",
+                "params": {
+                    "mappingId": "{{{{MAPPINGSETID_FROM_STEP3}}}}",
+                    "mappingVersion": "0"
+                }
+            }
+        ],
+        "scheduleParams": {
+            "startTime": "1646236700",
+            "frequency":"minute",
+            "interval":"15",
+            "backfill": true
+        }
+    }'

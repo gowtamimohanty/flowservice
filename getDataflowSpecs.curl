@@ -1,0 +1,7 @@
+curl --location --request GET 'https://platform.adobe.io/data/foundation/flowservice/flowSpecs' \
+--header 'x-api-key: d93c71aaa9c94a7296a32b994b0c244d' \
+--header 'Authorization: Bearer {{ACCESS_TOKEN}} \
+--header 'x-api-key: {{API_KEY}}' \
+--header 'x-gw-ims-org-id: {{IMS_ORG}}' \
+--header 'x-sandbox-name: {{SANDBOX_NAME}}' \
+--header 'Content-Type: application/json'

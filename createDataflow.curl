@@ -31,7 +31,7 @@ curl --location --request POST 'https://platform.adobe.io/data/foundation/flowse
             {
                 "name": "Mapping",
                 "params": {
-                    "mappingId": "{{{{MAPPINGSETID_FROM_STEP3}}}}",
+                    "mappingId": "{{MAPPINGSETID_FROM_STEP3}}",
                     "mappingVersion": "0"
                 }
             }

@@ -1,0 +1,46 @@
+curl --location --request POST 'https://platform.adobe.io/data/foundation/flowservice/sourceConnections' \
+--header 'Authorization: Bearer {{ACCESS_TOKEN}} \
+--header 'x-api-key: {{API_KEY}}' \
+--header 'x-gw-ims-org-id: {{IMS_ORG}}' \
+--header 'x-sandbox-name: {{SANDBOX_NAME}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "Database source connection ORDERS",
+    "baseConnectionId": "{{BASECONNECTIONID_FROM_STEP1}}",
+    "description": "Database source connection ORDERS",
+    "data": {
+        "format": "tabular"
+    },
+    "params": {
+        "tableName": "TEST.ORDERS",
+        "columns": [
+            {
+                "name": "FIELD1",
+                "type": "string",
+                "xdm": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "FIELD1",
+                "type": "string",
+                "xdm": {
+                    "type": "string"
+                }
+            },
+            {
+                "name": "FIELD3_DATETIME",
+                "type": "string",
+                "meta:xdmType": "date-time",
+                "xdm": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        ]
+    },
+    "connectionSpec": {
+        "id": "b2e08744-4f1a-40ce-af30-7abac3e23cf3",
+        "version": "1.0"
+    }
+}'

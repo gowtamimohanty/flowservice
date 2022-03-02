@@ -1,0 +1,23 @@
+curl --location --request POST 'https://platform.adobe.io/data/foundation/flowservice/targetConnections' \
+--header 'Authorization: Bearer {{ACCESS_TOKEN}} \
+--header 'x-api-key: {{API_KEY}}' \
+--header 'x-gw-ims-org-id: {{IMS_ORG}}' \
+--header 'x-sandbox-name: {{SANDBOX_NAME}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "name": "Database target connection ORDERS",
+        "description": "Database target connection ORDERS",
+        "data": {
+            "schema": {
+                "id": "https://ns.adobe.com/sbs/schemas/f1c4e24b09983a08d6df8a41e80c459bef19cea6619ca0dc",
+                "version": "application/vnd.adobe.xed-full+json;version=1"
+            }
+        },
+        "params": {
+            "dataSetId": "61a0da0df54bd118da5c24ff"
+        },
+        "connectionSpec": {
+            "id": "c604ff05-7f1a-43c0-8e18-33bf874cb11c",
+            "version": "1.0"
+        }
+    }'
